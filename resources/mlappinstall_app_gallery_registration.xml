@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<toolset id="user_apps_toolset" template="false">
+   <tool app_file_path="./" handler_class="com.mathworks.appmanagement.desktop.ToolboxToolSetExtensionHandler" id="81d534d3-f902-41d3-858d-9bd0533aac4d" label="Fear Conditioning Experiment Designer" toolset_id="user_apps_toolset">
+      <callback>matlab.apputil.run('FearConditioningExperimentDesigner - 1APP')</callback>
+      <description>update in 1.2.2
+- fixed ITI bug re-introduced in 1.2</description>
+      <parent_tool id="my_apps" toolset_id="apps_toolset"/>
+   </tool>
+</toolset>

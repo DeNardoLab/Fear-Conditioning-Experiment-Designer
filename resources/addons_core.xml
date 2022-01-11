@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addonCore>
+  <label>Fear Conditioning Experiment Designer</label>
+  <version>1.2.2</version>
+  <type>app</type>
+  <packagedBy>(R2020b)</packagedBy>
+  <identifier>81d534d3-f902-41d3-858d-9bd0533aac4d</identifier>
+  <description>update in 1.2.2
+- fixed ITI bug re-introduced in 1.2</description>
+  <createdBy name="zzeidler@ucla.edu"/>
+  <image>resources/screenshot.png</image>
+  <icons>
+    <icon tag="0">resources/icon_48.png</icon>
+    <icon tag="1">resources/icon_24.png</icon>
+    <icon tag="2">resources/icon_16.png</icon>
+  </icons>
+</addonCore>
