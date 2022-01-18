@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="1797103168" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\Fear Conditioning Experiment Designer.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="Fear Conditioning Experiment Designer" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="1775212891" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\Fear Conditioning Experiment Designer.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="Fear Conditioning Experiment Designer" target="target.mlapps" target-name="Package App">
     <param.appname>Fear Conditioning Experiment Designer</param.appname>
     <param.authnamewatermark>Zachary Zeidler</param.authnamewatermark>
     <param.email>zzeidler@ucla.edu</param.email>
@@ -7,9 +7,9 @@
     <param.icon />
     <param.icons />
     <param.summary>MATLAB GUI for Arduino-based interface for fear conditioning hardware with experimental design control and timestamps</param.summary>
-    <param.description>update in 1.3.2:  minor bug fix with broken sweep dur edit field</param.description>
-    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp3ed895c9_0b0d_4a42_a2a5_2c60e5922d29.png</param.screenshot>
-    <param.version>1.3.2</param.version>
+    <param.description>update in 1.3.3b: fixed broken FM sweep parameters from previous update</param.description>
+    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp75d69f85_6217_4470_9ef5_19bfadf2f4aa.png</param.screenshot>
+    <param.version>1.3.3</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
