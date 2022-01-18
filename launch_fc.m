@@ -1,6 +1,6 @@
 % Version 1.3
-% last update:  2022 01 11
-% updated to make timestamps and tones more in line with each other
+% last update:  2022 01 18
+% updated to include editability of hz on FM Sweep
 % Fear conditioning script
 % started ZZ 5/13/21
 % Goal:  make fear conditioning script to work with modern MATLAB Arduino
@@ -31,7 +31,7 @@ start_freq2 = P.start_freq2;
 end_freq1 = P.end_freq1; % f_end for FM sweep
 end_freq2 = P.end_freq2;
 sweep_dur = P.sweep_dur; %(s) duration of sweep, repeated over cs_dur.  NB must evenly divide with cs_dur
-
+hz = P.hz;  %(Hz) how frequently to iterate the FM Sweep
 
 % light settings
 flicker_freq1 = P.flicker_freq1 ;% (hz) from on to off to back on again
@@ -234,7 +234,7 @@ function ts = doStim(cs, csP, a, tonep, lightp, cs_dur, ts)
 
 %%
     elseif isequal(csP.name, 'FM') 
-        [y, Fs] = prepFMSweep(csP.start_freq, csP.end_freq, csP.sweep_dur, cs_dur);
+        [y, Fs] = prepFMSweep(csP.start_freq, csP.end_freq, csP.sweep_dur, cs_dur, csP.hz);
         sound(y,Fs);
         a.writeDigitalPin(tonep, 1); 
         if isequal(cs, 'csp')
@@ -314,7 +314,7 @@ function ts = doStimShock(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, ts)
        
 %%
     elseif isequal(csP.name, 'FM')
-       [y, Fs] = prepFMSweep(csP.start_freq, csP.end_freq, csP.sweep_dur, cs_dur);
+       [y, Fs] = prepFMSweep(csP.start_freq, csP.end_freq, csP.sweep_dur, cs_dur, csP.hz);
         sound(y,Fs);
         a.writeDigitalPin(tonep, 1);
 
@@ -386,7 +386,7 @@ function ts = doStimLaser(cs, csP, a, tonep, lightp, cs_dur, optop, ts)
         if isequal(csP.name, 'Tone')
             [y, Fs] = prepSineWave(cs_dur, csP.tone_freq);
         elseif isequal(csP.name, 'FM')
-           [y, Fs] = prepFMSweep(csP.start_freq, csP.end_freq, csP.sweep_dur, cs_dur);
+           [y, Fs] = prepFMSweep(csP.start_freq, csP.end_freq, csP.sweep_dur, cs_dur, csP.hz);
         end
 
         a.writeDigitalPin(optop, 1);
@@ -449,7 +449,7 @@ function ts = doStimShockLaser(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur
         if isequal(csP.name, 'Tone')
             [y, Fs] = prepSineWave(cs_dur, csP.tone_freq);
         elseif isequal(csP.name, 'FM')
-           [y, Fs] = prepFMSweep(csP.start_freq, csP.end_freq, csP.sweep_dur, cs_dur);
+           [y, Fs] = prepFMSweep(csP.start_freq, csP.end_freq, csP.sweep_dur, cs_dur, csP.hz);
         end
 
         a.writeDigitalPin(optop, 1);
@@ -570,7 +570,7 @@ function flickerLight(flicker_freq, light_dc, a, lightp, cs_dur)
     end
 end
 %%
-function playFMSweep(start_freq, end_freq, sweep_dur, cs_dur)
+function playFMSweep(start_freq, end_freq, sweep_dur, cs_dur, hz)
     % note:  cs_dur must be evenly divisble by sweep_dur
     Fs = 100000;
     t = 0:1/Fs:sweep_dur;
@@ -579,7 +579,7 @@ function playFMSweep(start_freq, end_freq, sweep_dur, cs_dur)
     f_in = linspace(f_in_start, f_in_end, length(t));
     phase_in = cumsum(f_in/Fs);
     y = sin(2*pi*phase_in);
-    rep = round(cs_dur/sweep_dur);
+    rep = round(cs_dur/sweep_dur); 
     y_cs = repmat(y,[1,rep]);
     sound(y_cs,Fs)
 end
@@ -591,7 +591,7 @@ function [y, Fs] = prepSineWave(cs_dur,tone_freq)
     Fs = 20*tone_freq;
 end
 
-function [y_cs, Fs] = prepFMSweep(start_freq, end_freq, sweep_dur, cs_dur)
+function [y_cs, Fs] = prepFMSweep(start_freq, end_freq, sweep_dur, cs_dur, hz)
     Fs = 100000;
     t = 0:1/Fs:sweep_dur;
     f_in_start = start_freq;
@@ -599,6 +599,11 @@ function [y_cs, Fs] = prepFMSweep(start_freq, end_freq, sweep_dur, cs_dur)
     f_in = linspace(f_in_start, f_in_end, length(t));
     phase_in = cumsum(f_in/Fs);
     y = sin(2*pi*phase_in);
-    rep = round(cs_dur/sweep_dur);
+    if sweep_dur ~= hz
+        dif = Fs * hz;
+        dif = dif - length(y);
+        y = [y, zeros(1,dif)];
+    end
+    rep = round(cs_dur/hz);
     y_cs = repmat(y,[1,rep]);
 end

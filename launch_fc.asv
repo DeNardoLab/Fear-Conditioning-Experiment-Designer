@@ -1,4 +1,5 @@
-% Version 1.1
+% Version 1.3
+% last update:  2022 01 11
 % updated to make timestamps and tones more in line with each other
 % Fear conditioning script
 % started ZZ 5/13/21
@@ -124,11 +125,16 @@ ts.us_on = [];
 ts.us_off = [];
 ts.laser_on = [];
 ts.laser_off = [];
+ts.miniscope_on = [];
+ts.miniscope_off = [];
 
 
 %% trigger miniscope
 if P.doMiniscope
     a.writeDigitalPin(minip, 1);
+    ts.miniscope_on = clock;
+    disp('Miniscope recording initiated')
+end
 
 %% baseline
 if t_baseline > 0
@@ -180,7 +186,16 @@ disp('Now doing events')
         disp(['Done ' num2str(i) ' of ' num2str(size(xd,2)) ' events']);
     end
 
-
+if P.postHoldTime > 0
+    pause(P.postHoldTime);
+end
+ 
+if P.doMiniscope
+    a.writeDigitalPin(minip, 0);
+    ts.miniscope_off = clock;
+    disp('Miniscope recording ended')
+end
+    
 disp('experiment complete')
 
 %% post processing
@@ -555,7 +570,7 @@ function flickerLight(flicker_freq, light_dc, a, lightp, cs_dur)
     end
 end
 %%
-function playFMSweep(start_freq, end_freq, sweep_dur, cs_dur)
+function playFMSweep(start_freq, end_freq, sweep_dur, cs_dur, hz)
     % note:  cs_dur must be evenly divisble by sweep_dur
     Fs = 100000;
     t = 0:1/Fs:sweep_dur;
@@ -565,6 +580,11 @@ function playFMSweep(start_freq, end_freq, sweep_dur, cs_dur)
     phase_in = cumsum(f_in/Fs);
     y = sin(2*pi*phase_in);
     rep = round(cs_dur/sweep_dur);
+    if sweep_dur ~= hz
+        dif = Fs * hz;
+        dif = dif - length(y);
+        y = [y, zeros(1,dif)];
+    end
     y_cs = repmat(y,[1,rep]);
     sound(y_cs,Fs)
 end
