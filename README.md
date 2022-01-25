@@ -21,7 +21,7 @@ The local timestamps (based on the computer clock) for all events (CS+, CS-, las
 
 4.	Install the Fear-Conditioning-Experiment-Designer (FCXD) app by running the .mlapp file. This will install the app under the ‘app’ tab in MATLAB.
 
-![Example schematic showing Arduino connections for controlling a shocker, houselight, and second Arduino for customizable laser control](./FCXD_schematic_v2.tif)
+![Example schematic showing Arduino connections for controlling a shocker, houselight, and second Arduino for customizable laser control](https://github.com/DeNardoLab/Fear-Conditioning-Experiment-Designer/blob/main/FCXD%20schematic.jpg?raw=true)
 # USAGE
 ## ENTERING EXPERIMENT PARAMETERS
 1.	Open FCXD. You will be prompted to choose which COM port the Arduino is connected to. Select the appropriate port. The app then connects to the Arduino, which takes a few seconds. During this time, do not edit the app. Wait until the Arduino is successfully connected.
