@@ -1,5 +1,6 @@
 # Fear-Conditioning-Experiment-Designer
-GUI-guided, Arduino based MATLAB app to interface with fear conditioning experiment hardware, design and run experiments
+GUI-guided, Arduino based MATLAB app to interface with fear conditioning experiment hardware, design and run experiments.
+Written and designed by Zachary Zeidler, PhD; DeNardo Lab, Department of Physiology, UCLA
 
 The Fear Conditioning Experiment Designer app allows users to create and execute a fear conditioning experiment with various auditory and visual stimuli, paired with or without shock or laser delivery. All of this is controlled within a MATLAB app that communicates with an Arduino to send TTL pulses to appropriate hardware.
 
