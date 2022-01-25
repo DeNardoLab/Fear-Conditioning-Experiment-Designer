@@ -12,7 +12,7 @@ The local timestamps (based on the computer clock) for all events (CS+, CS-, las
   - Note: the tone is produced by creating a custom sine wave within MATLAB and using the play MATLAB function to produce the tone, therefore no external hardware is required to make tones (beyond computer speakers). This pin is intended for an optional hardware pairing to be coincident with the tone (eg a houselight or visual confirmation of tone for recordings)
 -	D4 = shocker
 -	D6 = laser controller
-  - Note:  this is a simple TTL trigger to turn on and off a designated controller for the laser. For constant light, this will work with TTL-compatible lasers. To shape the light pulse, you can use another Arduino running a custom script which then controls the laser.
+  - Note:  this is a  TTL trigger to turn on and off a designated controller for the laser. For constant light, this will work with TTL-compatible lasers. To shape the light pulse, you can use this TTL trigger to control another Arduino running a custom script that shapes the light.
 -	D7 = light
 -	D13 = Miniscope 
 -	Ensure that the circuit is properly grounded.
