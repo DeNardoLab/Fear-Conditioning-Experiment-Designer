@@ -589,9 +589,7 @@ function [y, Fs] = prepSineWave(cs_dur,tone_freq)
     Ts = 1/Fs;  % sampling interval (s)
     T = 0:Ts:(Fs*Ts*cs_dur);
     y = sin(2*pi*tone_freq*T); % tone
-    if tone_freq = 5000
-        y=y/100;
-    end
+    if tone_freq = 
 end
 
 function [y_cs, Fs] = prepFMSweep(start_freq, end_freq, sweep_dur, cs_dur)
