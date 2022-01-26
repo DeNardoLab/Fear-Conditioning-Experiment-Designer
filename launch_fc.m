@@ -591,7 +591,7 @@ function [y, Fs] = prepSineWave(cs_dur,tone_freq)
     y = sin(2*pi*tone_freq*T); % tone
     %hardcode adjustment to match freq response of 5kHz to 12kHz, based on
     %response profile of Amazon Basics bluetooth speaker
-    if tone_freq = 5000
+    if tone_freq == 5000
         y=y/100;
     end
 end

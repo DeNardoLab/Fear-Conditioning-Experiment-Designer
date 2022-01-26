@@ -1,14 +1,14 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="1775212891" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\Fear Conditioning Experiment Designer.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="Fear Conditioning Experiment Designer" target="target.mlapps" target-name="Package App">
-    <param.appname>Fear Conditioning Experiment Designer</param.appname>
+  <configuration build-checksum="4229573557" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\FCXD_ZZfork.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="FCXD_ZZfork" target="target.mlapps" target-name="Package App">
+    <param.appname>FCXD_ZZfork</param.appname>
     <param.authnamewatermark>Zachary Zeidler</param.authnamewatermark>
     <param.email>zzeidler@ucla.edu</param.email>
     <param.company>DeNardo Lab</param.company>
     <param.icon />
     <param.icons />
     <param.summary>MATLAB GUI for Arduino-based interface for fear conditioning hardware with experimental design control and timestamps</param.summary>
-    <param.description>update in 1.3.3b: fixed broken FM sweep parameters from previous update</param.description>
-    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp75d69f85_6217_4470_9ef5_19bfadf2f4aa.png</param.screenshot>
+    <param.description>fork of 1.3.3: hardcode adjustment of response intensity of 5kHz tone, to match response of 12kHz tone on Amazon Basics bluetooth speaker</param.description>
+    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp7317fe41_8ece_419b_a134_a65ef315a1ac.png</param.screenshot>
     <param.version>1.3.3</param.version>
     <param.products.name />
     <param.products.id />
