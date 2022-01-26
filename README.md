@@ -1,3 +1,5 @@
+5kHz-12kHz-freq-resp-adj fork:  matches response intensity of 5kHz and 12kHz tones based on response profile of Amazon Basic speaker
+
 # Fear-Conditioning-Experiment-Designer
 GUI-guided, Arduino based MATLAB app to interface with fear conditioning experiment hardware, design and run experiments.
 Written and designed by Zachary Zeidler, PhD; DeNardo Lab, Department of Physiology, UCLA
