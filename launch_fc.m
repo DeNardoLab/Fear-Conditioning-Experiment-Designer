@@ -585,14 +585,14 @@ function playFMSweep(start_freq, end_freq, sweep_dur, cs_dur)
 end
 
 function [y, Fs] = prepSineWave(cs_dur,tone_freq)
-    period_number = cs_dur*tone_freq;
-    x = 0:pi*2/20:pi*2*period_number;
-    y = sin(x);
-    Fs = 20*tone_freq;
+    Fs = 44100;  % sampling freq (hz) NOTE: tone limit is 22 kHz
+    Ts = 1/Fs;  % sampling interval (s)
+    T = 0:Ts:(Fs*Ts*cs_dur);
+    y = sin(2*pi*tone_freq*T); % tone
 end
 
 function [y_cs, Fs] = prepFMSweep(start_freq, end_freq, sweep_dur, cs_dur)
-    Fs = 100000;
+    Fs = 44100;
     t = 0:1/Fs:sweep_dur;
     f_in_start = start_freq;
     f_in_end = end_freq;
