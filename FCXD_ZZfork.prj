@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="4229573557" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\FCXD_ZZfork.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="FCXD_ZZfork" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="4066305084" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\FCXD_ZZfork.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="FCXD_ZZfork" target="target.mlapps" target-name="Package App">
     <param.appname>FCXD_ZZfork</param.appname>
     <param.authnamewatermark>Zachary Zeidler</param.authnamewatermark>
     <param.email>zzeidler@ucla.edu</param.email>
@@ -8,8 +8,8 @@
     <param.icons />
     <param.summary>MATLAB GUI for Arduino-based interface for fear conditioning hardware with experimental design control and timestamps</param.summary>
     <param.description>fork of 1.3.3: hardcode adjustment of response intensity of 5kHz tone, to match response of 12kHz tone on Amazon Basics bluetooth speaker</param.description>
-    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp7317fe41_8ece_419b_a134_a65ef315a1ac.png</param.screenshot>
-    <param.version>1.3.3</param.version>
+    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp19235d57_2f2c_41fd_821d_d343b6050e02.png</param.screenshot>
+    <param.version>1.0</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
@@ -22,6 +22,7 @@
       <param.company />
       <param.icon />
       <param.icons />
+      <param.version />
       <param.products.name />
       <param.products.id />
       <param.products.version />
