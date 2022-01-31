@@ -1,15 +1,15 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="4286823775" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\FCXD_ZZfork.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="FCXD_ZZfork" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="2175980791" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\FCXD_ZZfork.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="FCXD_ZZfork" target="target.mlapps" target-name="Package App">
     <param.appname>FCXD_ZZfork</param.appname>
     <param.authnamewatermark>Zachary Zeidler</param.authnamewatermark>
     <param.email>zzeidler@ucla.edu</param.email>
     <param.company>DeNardo Lab</param.company>
     <param.icon />
     <param.icons />
-    <param.summary>FCXD fork from 1.3.3 hardcoded for matching 5kHz and 12kHz tones</param.summary>
+    <param.summary>FCXD fork from 1.3.3 hardcoded for matching 5kHz and 12kHz tones, added filtered white noise feature when tone freq == 1</param.summary>
     <param.description />
-    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp8e1410a0_b962_4aae_be69_873063fe6512.png</param.screenshot>
-    <param.version>1.0</param.version>
+    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp9f38be8e_8aec_44c3_8aad_ffe365f38885.png</param.screenshot>
+    <param.version>1.1</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
@@ -23,7 +23,6 @@
       <param.icon />
       <param.icons />
       <param.description />
-      <param.version />
       <param.products.name />
       <param.products.id />
       <param.products.version />

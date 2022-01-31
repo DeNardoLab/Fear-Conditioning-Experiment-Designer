@@ -586,18 +586,16 @@ end
 
 function [y, Fs] = prepSineWave(cs_dur,tone_freq)
     %  feature to generate filtered white noise
-    if tone_freq == 1
-        [y, Fs] = prepNoise(cs_dur);
-    else
-        Fs = 44100;  % sampling freq (hz) NOTE: tone limit is 22 kHz
-        Ts = 1/Fs;  % sampling interval (s)
-        T = 0:Ts:(Fs*Ts*cs_dur);
-        y = sin(2*pi*tone_freq*T); % tone
-        %hardcode adjustment to match freq response of 5kHz to 12kHz, based on
-        %response profile of Amazon Basics bluetooth speaker
-        if tone_freq == 5000
-            y=y/100;
-        end
+    if tone_freq == 
+
+    Fs = 44100;  % sampling freq (hz) NOTE: tone limit is 22 kHz
+    Ts = 1/Fs;  % sampling interval (s)
+    T = 0:Ts:(Fs*Ts*cs_dur);
+    y = sin(2*pi*tone_freq*T); % tone
+    %hardcode adjustment to match freq response of 5kHz to 12kHz, based on
+    %response profile of Amazon Basics bluetooth speaker
+    if tone_freq == 5000
+        y=y/100;
     end
 end
 
