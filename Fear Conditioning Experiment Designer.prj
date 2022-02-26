@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="3399266924" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\Fear Conditioning Experiment Designer.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="Fear Conditioning Experiment Designer" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="2243717811" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\Fear Conditioning Experiment Designer.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="Fear Conditioning Experiment Designer" target="target.mlapps" target-name="Package App">
     <param.appname>Fear Conditioning Experiment Designer</param.appname>
     <param.authnamewatermark>Zachary Zeidler</param.authnamewatermark>
     <param.email>zzeidler@ucla.edu</param.email>

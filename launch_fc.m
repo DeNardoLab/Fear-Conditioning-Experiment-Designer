@@ -716,10 +716,9 @@ function [ywn, Fswn] = prepNoise(cs_dur)
     
 end
 %%
-function t1 = psychsound(wavfilename)
+function psychsound(wavfilename)
     [y, freq] = psychwavread(wavfilename);
     wavedata = y';
-    nrchannels = size(wavedata,1); % Number of rows == number of channels.
     PsychPortAudio('FillBuffer', 1, wavedata);
     PsychPortAudio('Start', 1, 1, 0, 1);
 end

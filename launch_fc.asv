@@ -131,7 +131,7 @@ ts.miniscope_off = [];
 
 first_csp = 1;  % used to create wav file for low latency audio presentation
 first_csm = 1;
-InitializePsychSound(1); % from psychtoolbox
+InitializePsychSound(1) % from psychtoolbox
 
 %% trigger miniscope
 if P.doMiniscope
@@ -597,12 +597,7 @@ function ts = doStimShockLaser(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur
         else
             ts.csm_on = [ts.csm_on; clock];
         end
-        flickerLight(csP.flicker_freq, csP.light_dc, a, lightp, cs_dur-us_dur);
-        if isequal(cs, 'csp')
-            ts.csp_off = [ts.csp_off; clock];
-        else
-            ts.csm_off = [ts.csm_off; clock];
-        end                
+        flickerLight(csP.flicker_freq, csP.light_dc, a, lightp, cs_dur);
     end
    %%
     pause(cs_dur-us_dur);
@@ -612,52 +607,16 @@ function ts = doStimShockLaser(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur
     pause(us_dur);
     a.writeDigitalPin(shockp, 0);
     a.writeDigitalPin(tonep, 0);
-    a.writeDigitalPin(lightp,
+    a.writeDigitalPin(lightp, 0);
     ts.us_off = [ts.us_off; clock];
     if isequal(cs, 'csp')
         ts.csp_off = [ts.csp_off; clock];
     else
         ts.csm_off = [ts.csm_off; clock];
     end
-
-%%
-    
-        pause(cs_dur-us_dur)
-        a.writeDigitalPin(shockp,1);
-        ts.us_on = [ts.us_on; clock];
-        pause(us_dur);
-        a.writeDigitalPin(lightp,0);
-        if isequal(cs, 'csp')
-            ts.csp_off = [ts.csp_off; clock];
-        else
-            ts.csm_off = [ts.csm_off; clock];
-        end
-        a.writeDigitalPin(shockp,0);
-        ts.us_off = [ts.us_off; clock];
-%%        
-    elseif isequal(csP.name, 'Pulsed Light')
-        if isequal(cs, 'csp')
-            ts.csp_on = [ts.csp_on; clock];
-        else
-            ts.csm_on = [ts.csm_on; clock];
-        end
-        flickerLight(csP.flicker_freq, csP.light_dc, a, lightp, cs_dur-us_dur);
-        a.writeDigitalPin(shockp,1);
-        ts.us_on = [ts.us_on; clock];
-        flickerLight(csP.flicker_freq, csP.light_dc, a, lightp, us_dur);
-        if isequal(cs, 'csp')
-            ts.csp_off = [ts.csp_off; clock];
-        else
-            ts.csm_off = [ts.csm_off; clock];
-        end      
-        a.writeDigitalPin(shockp,0);
-        ts.us_off = [ts.us_off; clock];
-    end
     
     a.writeDigitalPin(optop,0);
-    ts.laser_off = [ts.laser_off; clock];
-    
-    end
+    ts.laser_off = [ts.laser_off; clock];   
 end
 
 %%
