@@ -1,183 +1,38 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="2243717811" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\Fear Conditioning Experiment Designer.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="Fear Conditioning Experiment Designer" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="631625563" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\Fear Conditioning Experiment Designer.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="Fear Conditioning Experiment Designer" target="target.mlapps" target-name="Package App">
     <param.appname>Fear Conditioning Experiment Designer</param.appname>
     <param.authnamewatermark>Zachary Zeidler</param.authnamewatermark>
     <param.email>zzeidler@ucla.edu</param.email>
     <param.company>DeNardo Lab</param.company>
     <param.icon />
     <param.icons />
-    <param.summary>Fear Conditioning Experiment Designer -- control fear conditioning hardware through Arduino controller</param.summary>
-    <param.description>v1.4 - included Psychtoolbox dependency for lower latency sound presentation. Now requires Psychtoolbox installation.</param.description>
-    <param.screenshot>C:\Users\Zach\Desktop\Screenshot 2022-02-25 155938.jpg</param.screenshot>
-    <param.version>1.4</param.version>
+    <param.summary>Fear Conditioning Experiment Designer with Psychtoolbox audio presentation for more accurate audio timestamps.</param.summary>
+    <param.description />
+    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp08528901_3f88_44bc_9c34_d226ea0d6fcc.png</param.screenshot>
+    <param.version>1.4.1</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
-    <param.platforms>
-      <item>win64</item>
-    </param.platforms>
+    <param.platforms />
     <param.output>${PROJECT_ROOT}</param.output>
-    <param.guid>c0daab5c-a335-4367-90a4-60ce3d5904cb</param.guid>
+    <param.guid>7bc57768-0dfd-4bbe-bfea-38b8f4d86662</param.guid>
     <unset>
       <param.authnamewatermark />
       <param.email />
       <param.company />
       <param.icon />
       <param.icons />
+      <param.description />
       <param.products.name />
       <param.products.id />
       <param.products.version />
+      <param.platforms />
       <param.output />
     </unset>
     <fileset.main>
-      <file>${PROJECT_ROOT}\FC_Design.mlapp</file>
+      <file>${PROJECT_ROOT}\FC_Designzzfork.mlapp</file>
     </fileset.main>
     <fileset.depfun>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+adc\master.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+adc\master_base.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+addon\AddonBase.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+addon\LibraryBase.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+addon\master.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+addon\master_base.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+can\Channel.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+can\ChannelProvider.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+can\Node.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+dio\master.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+dio\master_base.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\ActiveLevelEnum.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\base.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\BitOrderEnum.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\BluetoothDeviceTypeEnum.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\ConnectionTypeEnum.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\endsWith.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\findSubClasses.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\footer.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\InterfaceEnum.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\isICTInstalled.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\localizedError.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\localizedWarning.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\precisions.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\renderArrayOfIntsToCharVector.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\renderArrayOfIntsToString.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\renderArrayOfPinStringsToRangedCharacterVector.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\renderArrayOfPinStringsToRangedString.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\renderArrayOfStringsToString.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\renderCellArrayOfCharVectorsToCharVector.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\renderCellArrayOfStringsToString.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\sizeof.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\validateDigitalParameter.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\validateDoubleParameterRanged.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\validateHexParameterRanged.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\validateIntArrayParameterRanged.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\validateIntParameterRanged.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\WiFiEncryptionTypeEnum.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\+internal\WiFiStatusEnum.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\master.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+hwsdk\master_base.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+i2c\device.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+i2c\master.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+i2c\master_base.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+pwm\master.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+pwm\master_base.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+rawDevice\device.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+sensors\+internal\OutputFormat.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+sensors\+internal\ReadMode.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+sensors\+internal\StreamingStatus.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+sensors\+internal\TimeFormat.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+sensors\discardZeros.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+sensors\gpsHardware.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+sensors\parsePosition.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+sensors\sensorInterface.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+serial\device.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+serial\master.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+serial\master_base.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+spi\device.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+spi\master.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\hwsdk\+matlabshared\+spi\master_base.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\shared\sensors\+sensors\+internal\gpsdev.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\+debug\AnalogInput.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\+debug\DigitalIO.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\+debug\I2C.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\+debug\PlayTone.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\+debug\PWM.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\+debug\RotaryEncoder.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\+debug\SCI.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\+debug\Servo.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\+debug\ShiftRegister.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\+debug\SPI.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\+debug\Ultrasonic.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\debugMessage.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\getPortBoardIDE.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\MLCompiler_Arduino.mlapp</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\ResourceManager.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+internal\TabCompletionHelper.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+motorcarrier\DCMotor.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+motorcarrier\DCMotorBase.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+motorcarrier\MKRMotorCarrier.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+motorcarrier\MotorCarrier.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+motorcarrier\PIDMotor.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+motorcarrier\PIDMotorPosition.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+motorcarrier\PIDMotorSpeed.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+motorcarrier\RotaryEncoder.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+motorcarrier\Servo.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\+setup\+internal\HardwareInterface.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\ArduinoMCP2515.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\FilePath.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\MCP2515.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\MotorBase.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\RotaryEncoder.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\Servo.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\ServoMotorBase.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\ShiftRegister.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\SPPKGRoot.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\+arduinoio\Ultrasonic.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\@arduino\arduino.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\arduinoio\listArduinoLibraries.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinodriver\ArduinoDigitalIO.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinodriver\ArduinoDigitalIO.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinodriver\ArduinoI2C.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinodriver\ArduinoI2C.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinodriver\ArduinoSPI.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinodriver\ArduinoSPI.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinoio\+internal\accessor.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinoio\+internal\ArduinoConstants.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinoio\+internal\BoardInfo.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinoio\+internal\CopyServerToTemp.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinoio\+internal\getDefaultLibraryPropertyValue.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinoio\+internal\LinuxUtility.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinoio\+internal\MacUtility.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinoio\+internal\searchDefaultPropertyValue.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinoio\+internal\Utility.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinoio\+internal\UtilityCreator.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinoio\+internal\WindowsUtility.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinoio\IDERoot.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+arduinoio\SharedArduinoRoot.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+simulinkio\arduinoioserver.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+simulinkio\arduinoioserver.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+simulinkio\getBaudRate.m</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\matlab\hardware\supportpackages\sharedarduino\+simulinkio\getBaudRate.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\realtime\targets\arduinoide\+ide\+internal\getArduinoIDERootDir.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\target\shared\devicedrivers\+matlabshared\+devicedrivers\PWM.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\target\shared\ioserver\+matlabshared\+ioclient\+internal\getIOServerRootDir.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\target\shared\ioserver\+matlabshared\+ioclient\+peripherals\AnalogInput.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\target\shared\ioserver\+matlabshared\+ioclient\+peripherals\DigitalIO.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\target\shared\ioserver\+matlabshared\+ioclient\+peripherals\I2C.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\target\shared\ioserver\+matlabshared\+ioclient\+peripherals\SCI.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\target\shared\ioserver\+matlabshared\+ioclient\+peripherals\SPI.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\target\shared\ioserver\+matlabshared\+ioclient\+transport\TransportLayerUtility.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\target\shared\ioserver\+matlabshared\+ioclient\debugMessage.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\target\shared\ioserver\+matlabshared\+ioclient\debugPeripheralClass.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\target\shared\ioserver\+matlabshared\+ioclient\IOProtocol.p</file>
-      <file>C:\ProgramData\MATLAB\SupportPackages\R2020b\toolbox\target\shared\svd\+matlabshared\+svd\+internal\getRootDir.p</file>
-      <file>C:\toolbox\Psychtoolbox\PsychBasic\MatlabWindowsFilesR2007a\PsychPortAudio.mexw64</file>
-      <file>C:\toolbox\Psychtoolbox\PsychBasic\psychlasterror.m</file>
-      <file>C:\toolbox\Psychtoolbox\PsychOneliners\IsLinux.m</file>
-      <file>C:\toolbox\Psychtoolbox\PsychOneliners\IsOSX.m</file>
-      <file>C:\toolbox\Psychtoolbox\PsychOneliners\IsWin.m</file>
-      <file>C:\toolbox\Psychtoolbox\PsychOneliners\PsychtoolboxRoot.m</file>
-      <file>C:\toolbox\Psychtoolbox\PsychOneliners\streq.m</file>
-      <file>C:\toolbox\Psychtoolbox\PsychSound\InitializePsychSound.m</file>
-      <file>C:\toolbox\Psychtoolbox\PsychSound\psychwavread.m</file>
       <file>${PROJECT_ROOT}\launch_fc.m</file>
     </fileset.depfun>
     <fileset.resources />
