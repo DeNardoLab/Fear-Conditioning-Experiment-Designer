@@ -1,4 +1,4 @@
-% Version 1.3
+% Version 1.4
 % last update:  2022 01 11
 % updated to make timestamps and tones more in line with each other
 % Fear conditioning script
@@ -11,6 +11,15 @@
 %% setup params
 % experiment structure
 function launch_fc(P)
+% SET MANUAL AUDIO API 
+% if manual_audio set to 0, triese to identify correct device
+% use PsychPortAudio('GetDevices') to find device ID for preferred WASAPI
+% API speaker
+manual_audio = 0;
+if manual_audio
+    devID = 3;
+end
+
 % load params
 a = P.a;
 exp_ID = P.exp_ID;
@@ -129,9 +138,26 @@ ts.laser_off = [];
 ts.miniscope_on = [];
 ts.miniscope_off = [];
 
+global first_csp;
+global first_csm;
+global pahandle;
+InitializePsychSound(1); % from psychtoolbox, for low latency sound delivery
+
 first_csp = 1;  % used to create wav file for low latency audio presentation
 first_csm = 1;
-InitializePsychSound(1); % from psychtoolbox
+
+%% initialize audio device
+audio_devices = PsychPortAudio('GetDevices');
+if ~manual_audio
+for i = 1:size(audio_devices,2)
+    if audio_devices(i).HostAudioAPIName == "Windows WASAPI"
+        devID = i;
+        break
+    end
+end
+end
+pahandle = PsychPortAudio('Open',devID); % open audio device NB: must be WASAPI audio subsystem, see PsychPortAudio('GetDevices') for device index 
+
 
 %% trigger miniscope
 if P.doMiniscope
@@ -216,6 +242,8 @@ end
 % cs_params, arduino handle, tonepin, lightpin)
 function ts = doStim(cs, csP, a, tonep, lightp, cs_dur, ts)
 %%
+    global first_csp
+    global first_csm
     if isequal(csP.name, 'Tone')
         if isequal(cs, 'csp')
             if first_csp
@@ -223,20 +251,20 @@ function ts = doStim(cs, csP, a, tonep, lightp, cs_dur, ts)
                 audiowrite('csp.wav',y,Fs);
                 first_csp = 0;
             end
-            psychsound('csp.wav');
+            audiotime = psychsound('csp.wav');
         elseif isequal(cs, 'csm')
             if first_csm
                 [y, Fs] = prepSineWave(cs_dur, csP.tone_freq);
                 audiowrite('csm.wav',y,Fs);
                 first_csm = 0;
             end
-            psychsound('csm.wav');
+            audiotime = psychsound('csm.wav');
         end
         
         if isequal(cs, 'csp')
-            ts.csp_on = [ts.csp_on; clock];
+            ts.csp_on = [ts.csp_on; audiotime];
         else
-            ts.csm_on = [ts.csm_on; clock];
+            ts.csm_on = [ts.csm_on; audiotime];
         end
         
         a.writeDigitalPin(tonep, 1);
@@ -260,20 +288,20 @@ function ts = doStim(cs, csP, a, tonep, lightp, cs_dur, ts)
                 audiowrite('csp.wav',y,Fs);
                 first_csp = 0;
             end
-        psychsound('csp.wav');
+        audiotime = psychsound('csp.wav');
         elseif isequal(cs, 'csm')
             if first_csm
                 [y, Fs] = prepFMSweep(csP.start_freq, csP.end_freq, csP.sweep_dur, cs_dur);
                 audiowrite('csm.wav',y,Fs);
                 first_csm = 0;
             end
-            psychsound('csm.wav');
+            audiotime = psychsound('csm.wav');
         end
         
         if isequal(cs, 'csp')
-            ts.csp_on = [ts.csp_on; clock];
+            ts.csp_on = [ts.csp_on; audiotime];
         else
-            ts.csm_on = [ts.csm_on; clock];
+            ts.csm_on = [ts.csm_on; audiotime];
         end
         
         a.writeDigitalPin(tonep, 1);
@@ -312,6 +340,8 @@ function ts = doStim(cs, csP, a, tonep, lightp, cs_dur, ts)
 end
 %%
 function ts = doStimShock(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, ts)
+    global first_csp
+    global first_csm
     if isequal(csP.name, 'Tone')
         %%
         if isequal(cs, 'csp')
@@ -320,20 +350,20 @@ function ts = doStimShock(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, ts)
                 audiowrite('csp.wav',y,Fs);
                 first_csp = 0;
             end
-            psychsound('csp.wav');
+            audiotime = psychsound('csp.wav');
         elseif isequal(cs, 'csm')
             if first_csm
                 [y, Fs] = prepSineWave(cs_dur, csP.tone_freq);
                 audiowrite('csm.wav',y,Fs);
                 first_csm = 0;
             end
-            psychsound('csm.wav');
+            audiotime = psychsound('csm.wav');
         end
         
         if isequal(cs, 'csp')
-            ts.csp_on = [ts.csp_on; clock];
+            ts.csp_on = [ts.csp_on; audiotime];
         else
-            ts.csm_on = [ts.csm_on; clock];
+            ts.csm_on = [ts.csm_on; audiotime];
         end
         
         a.writeDigitalPin(tonep, 1);
@@ -368,20 +398,20 @@ function ts = doStimShock(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, ts)
                 audiowrite('csp.wav',y,Fs);
                 first_csp = 0;
             end
-        psychsound('csp.wav');
+        audiotime = psychsound('csp.wav');
         elseif isequal(cs, 'csm')
             if first_csm
                 [y, Fs] = prepFMSweep(csP.start_freq, csP.end_freq, csP.sweep_dur, cs_dur);
                 audiowrite('csm.wav',y,Fs);
                 first_csm = 0;
             end
-        psychsound('csm.wav');
+        audiotime = psychsound('csm.wav');
        end
 
         if isequal(cs, 'csp')
-            ts.csp_on = [ts.csp_on; clock];
+            ts.csp_on = [ts.csp_on; audiotime];
         else
-            ts.csm_on = [ts.csm_on; clock];
+            ts.csm_on = [ts.csm_on; audiotime];
         end
         
         pause(cs_dur-us_dur);
@@ -442,6 +472,8 @@ end
 
 %%
 function ts = doStimLaser(cs, csP, a, tonep, lightp, cs_dur, optop, ts)
+    global first_csp
+    global first_csm    
     a.writeDigitalPin(optop, 1);
     ts.laser_on = [ts.laser_on; clock];
     
@@ -453,14 +485,14 @@ function ts = doStimLaser(cs, csP, a, tonep, lightp, cs_dur, optop, ts)
                     audiowrite('csp.wav',y,Fs);
                     first_csp = 0;
                 end
-                psychsound('csp.wav');
+                audiotime = psychsound('csp.wav');
             elseif isequal(cs, 'csm')
                 if first_csm
                     [y, Fs] = prepSineWave(cs_dur, csP.tone_freq);
                     audiowrite('csm.wav',y,Fs);
                     first_csm = 0;
                 end
-                psychsound('csm.wav');
+                audiotime = psychsound('csm.wav');
             end 
           
         elseif isequal(csP.name, 'FM')
@@ -470,22 +502,22 @@ function ts = doStimLaser(cs, csP, a, tonep, lightp, cs_dur, optop, ts)
                     audiowrite('csp.wav',y,Fs);
                     first_csp = 0;
                 end
-                psychsound('csp.wav');
+                audiotime = psychsound('csp.wav');
             elseif isequal(cs, 'csm')
                 if first_csm
                     [y, Fs] = prepFMSweep(csP.start_freq, csP.end_freq, csP.sweep_dur, cs_dur);
                     audiowrite('csm.wav',y,Fs);
                     first_csm = 0;
                 end
-                psychsound('csm.wav');
+                audiotime = psychsound('csm.wav');
             end
         end
 
         a.writeDigitalPin(tonep,1);
         if isequal(cs, 'csp')
-            ts.csp_on = [ts.csp_on; clock];
+            ts.csp_on = [ts.csp_on; audiotime];
         else
-            ts.csm_on = [ts.csm_on; clock];
+            ts.csm_on = [ts.csm_on; audiotime];
         end
 
         pause(cs_dur);
@@ -534,6 +566,8 @@ end
 
 %%
 function ts = doStimShockLaser(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, optop, ts)
+    global first_csp
+    global first_csm    
     a.writeDigitalPin(optop, 1);
     ts.laser_on = [ts.laser_on; clock];
     
@@ -545,14 +579,14 @@ function ts = doStimShockLaser(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur
                     audiowrite('csp.wav',y,Fs);
                     first_csp = 0;
                 end
-                psychsound('csp.wav');
+                audiotime = psychsound('csp.wav');
             elseif isequal(cs, 'csm')
                 if first_csm
                     [y, Fs] = prepSineWave(cs_dur, csP.tone_freq);
                     audiowrite('csm.wav',y,Fs);
                     first_csm = 0;
                 end
-                psychsound('csm.wav');
+                audiotime = psychsound('csm.wav');
             end 
           
         elseif isequal(csP.name, 'FM')
@@ -562,21 +596,21 @@ function ts = doStimShockLaser(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur
                     audiowrite('csp.wav',y,Fs);
                     first_csp = 0;
                 end
-                psychsound('csp.wav');
+                audiotime = psychsound('csp.wav');
             elseif isequal(cs, 'csm')
                 if first_csm
                     [y, Fs] = prepFMSweep(csP.start_freq, csP.end_freq, csP.sweep_dur, cs_dur);
                     audiowrite('csm.wav',y,Fs);
                     first_csm = 0;
                 end
-                psychsound('csm.wav');
+                audiotime = psychsound('csm.wav');
             end
         end
 
         if isequal(cs, 'csp')
-            ts.csp_on = [ts.csp_on; clock];
+            ts.csp_on = [ts.csp_on; audiotime];
         else
-            ts.csm_on = [ts.csm_on; clock];
+            ts.csm_on = [ts.csm_on; audiotime];
         end
         a.writeDigitalPin(tonep,1);
 
@@ -668,15 +702,15 @@ function [y, Fs] = prepSineWave(cs_dur,tone_freq)
     if tone_freq == 1
         [y, Fs] = prepNoise(cs_dur);
     else
-        Fs = 44100;  % sampling freq (hz) NOTE: tone limit is 22 kHz
+        Fs = 48000;  % sampling freq (hz) NOTE: tone limit is 22 kHz
         Ts = 1/Fs;  % sampling interval (s)
         T = 0:Ts:(Fs*Ts*cs_dur);
         y = sin(2*pi*tone_freq*T); % tone
         %hardcode adjustment to match freq response of 5kHz to 12kHz, based on
         %response profile of Amazon Basics bluetooth speaker
-        if tone_freq == 5000
-            y=y/10;
-        end
+        %if tone_freq == 5000
+        %    y=y/10;
+        %end
     end
 end
 %%
@@ -711,14 +745,17 @@ function [ywn, Fswn] = prepNoise(cs_dur)
     n = n + rem(n,2);
     hh = fir1(n,Wn,ftype,kaiser(n+1,beta),'scale');
     s = randn(1, dur*Fswn);                                             % Gaussian White Noise
-    t = 0 : 1/Fswn : (length(s)-1)/Fswn;
+    %St = 0 : 1/Fswn : (length(s)-1)/Fswn;
     ywn = filtfilt(hh, 1, s);                                     % Filter Signal
     
 end
 %%
-function psychsound(wavfilename)
-    [y, freq] = psychwavread(wavfilename);
-    wavedata = y';
-    PsychPortAudio('FillBuffer', 1, wavedata);
-    PsychPortAudio('Start', 1, 1, 0, 1);
+function audiotime = psychsound(wavfilename)
+    global pahandle;
+    [y, ~] = psychwavread(wavfilename);  % read wav file
+    wavedata = y';  % transpose 
+    wavedata = [wavedata; wavedata];  % audio devices have 2 output channels; provide stream for both
+    PsychPortAudio('FillBuffer', pahandle, wavedata);  % prep the sound 
+    PsychPortAudio('Start', pahandle, 1, 0, 1);
+    audiotime = clock;
 end
