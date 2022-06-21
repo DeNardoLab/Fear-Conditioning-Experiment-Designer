@@ -1,13 +1,14 @@
-% Version 1.4
-% last update:  2022 01 11
-% updated to make timestamps and tones more in line with each other
+% Version 1.5
+% last update:  2022 06 22
+% MAJOR UPDATES: integrated PointGray Chameleon3 control and start/stop 
+% camera timestamps, audio playback optimization using PsychToolBox and 
+% autodetect WASAPI API for sound
+
 % Fear conditioning script
 % started ZZ 5/13/21
-% Goal:  make fear conditioning script to work with modern MATLAB Arduino
-% interface, and provide way to also do light cue
 
-% hardware setup on arduino:  pin 4 - shock, pin 5 - tone/blank, pin 6 - laser,
-% pin 7 - light, pin 13, miniscope trigger
+% hardware setup on arduino:  pin 4 - shock, pin 3 - CS+, pin 5, CS- , 
+% pin 6 - laser, pin 7 - light, pin 13, miniscope trigger
 %% setup params
 % experiment structure
 function launch_fc(P)
@@ -17,7 +18,7 @@ function launch_fc(P)
 % API speaker
 manual_audio = 0;
 if manual_audio
-    devID = 3;
+    devID = 7;
 end
 
 % load params
@@ -119,7 +120,9 @@ xd_labels = ["CS+";"CS-";"Shock";"Laser"];
 
 
 %% initialization
-tonep = 'D3';  %tonepin
+tonep_csp = 'D3';  %tonepin for CS+
+tonep_csm = 'D5'; %tonepin for CS-
+tonep = tonep_csp; %default to CS+
 shockp = 'D4';  %shockpin
 lightp = 'D7';  %lightpin
 optop = 'D6'; % opto pin
@@ -152,6 +155,8 @@ if ~manual_audio
 for i = 1:size(audio_devices,2)
     if audio_devices(i).HostAudioAPIName == "Windows WASAPI"
         devID = i;
+        disp(['Using ' audio_devices(devID).DeviceName 'with Windows WASAPI API']);
+        disp('if different speakers desired, edit manual_audio and devID at top of launch_fc.m function');
         break
     end
 end
@@ -164,6 +169,22 @@ if P.doMiniscope
     a.writeDigitalPin(minip, 1);
     ts.miniscope_on = clock;
     disp('Miniscope recording initiated')
+end
+
+%% trigger PointGray
+% save to memory and disk to extract timestamps
+if P.run_PG
+    P.vid.LoggingMode = 'disk';
+    time = datestr(clock,'YYYY-mm-dd_HH-MM-SS');
+    savenamepg = [exp_ID '_camera_' time '.avi'];
+    diskLogger = VideoWriter(savenamepg, 'Motion JPEG AVI');
+    diskLogger.FrameRate = 50;
+    diskLogger.Quality = 75;
+    P.vid.DiskLogger = diskLogger;
+
+    ts.camera_on = clock;
+    start(P.vid);
+    disp('Pointgray vid started with Zachs default settings');
 end
 
 %% baseline
@@ -191,20 +212,28 @@ disp('Now doing events')
         disp(['Now doing event #' num2str(i)]);
         this = xd(:,i);
         if isequal(this,[1;0;0;0])
+            tonep = tonep_csp;
             ts = doStim('csp', csp_p, a, tonep, lightp, cs_dur, ts);
         elseif isequal(this,[0;1;0;0])
+            tonep = tonep_csm;
             ts = doStim('csm', csm_p, a, tonep, lightp, cs_dur, ts);
         elseif isequal(this,[1;0;1;0])
+            tonep = tonep_csp;
             ts = doStimShock('csp', csp_p, a, tonep, lightp, shockp, cs_dur, us_dur, ts);  
         elseif isequal(this,[0;1;1;0])
+            tonep = tonep_csm;
             ts = doStimShock('csm', csm_p, a, tonep, lightp, shockp, cs_dur, us_dur, ts);
         elseif isequal(this,[1;0;0;1])
+            tonep = tonep_csp;
             ts = doStimLaser('csp', csp_p, a, tonep, lightp, cs_dur, optop, ts);
         elseif isequal(this,[0;1;0;1])
+            tonep = tonep_csm;
             ts = doStimLaser('csm', csm_p, a, tonep, lightp, cs_dur, optop, ts);
         elseif isequal(this,[1;0;1;1])
+            tonep = tonep_csp;
             ts = doStimShockLaser('csp', csp_p, a, tonep, lightp, shockp, cs_dur, us_dur, optop, ts);
         elseif isequal(this,[0;1;1;1])
+            tonep = tonep_csm;
             ts = doStimShockLaser('csm', csm_p, a, tonep, lightp, shockp, cs_dur, us_dur, optop, ts);
         elseif isequal(this,[2;2;0;1])
             ts = doLaser(a, cs_dur, optop, ts);
@@ -224,6 +253,15 @@ if P.doMiniscope
     a.writeDigitalPin(minip, 0);
     ts.miniscope_off = clock;
     disp('Miniscope recording ended')
+end
+
+if P.run_PG
+    ts.camera_off = clock;
+    stop(P.vid);
+    %[~,ts.pg_frames] = getdata(P.vid);
+    disp('Point Gray recording ended');
+else
+    %ts.pg_frames = [];
 end
     
 disp('experiment complete')

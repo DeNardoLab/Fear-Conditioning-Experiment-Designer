@@ -1,15 +1,16 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="631625563" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\Fear Conditioning Experiment Designer.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="Fear Conditioning Experiment Designer" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="921057249" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\Fear Conditioning Experiment Designer.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="Fear Conditioning Experiment Designer" target="target.mlapps" target-name="Package App">
     <param.appname>Fear Conditioning Experiment Designer</param.appname>
     <param.authnamewatermark>Zachary Zeidler</param.authnamewatermark>
     <param.email>zzeidler@ucla.edu</param.email>
     <param.company>DeNardo Lab</param.company>
     <param.icon />
     <param.icons />
-    <param.summary>Fear Conditioning Experiment Designer with Psychtoolbox audio presentation for more accurate audio timestamps.</param.summary>
-    <param.description />
-    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp08528901_3f88_44bc_9c34_d226ea0d6fcc.png</param.screenshot>
-    <param.version>1.4.1</param.version>
+    <param.summary>Fear Conditioning Experiment Designer</param.summary>
+    <param.description>REQUIRES:  PsychToolbox, MATLAB FLIR SDK support
+Newly integrates Psychtoolbox for optimized sound playback and PointGray Chameleon3 camera control to record start and end times of video</param.description>
+    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp322e798a_b52e_4192_b572_9e57ea566829.png</param.screenshot>
+    <param.version>1.5</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
@@ -22,7 +23,6 @@
       <param.company />
       <param.icon />
       <param.icons />
-      <param.description />
       <param.products.name />
       <param.products.id />
       <param.products.version />
