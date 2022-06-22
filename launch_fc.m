@@ -1,11 +1,12 @@
-% Version 1.5
+% Version 1.5.1
 % last update:  2022 06 22
-% MAJOR UPDATES: integrated PointGray Chameleon3 control and start/stop 
-% camera timestamps, audio playback optimization using PsychToolBox and 
-% autodetect WASAPI API for sound
-
+% updated to integrate PointGray Chameleon3 control and start/stop camera
+% timestamps and audio device optimizer to use WASAPI API for sound
+% playback
 % Fear conditioning script
 % started ZZ 5/13/21
+% Goal:  make fear conditioning script to work with modern MATLAB Arduino
+% interface, and provide way to also do light cue
 
 % hardware setup on arduino:  pin 4 - shock, pin 3 - CS+, pin 5, CS- , 
 % pin 6 - laser, pin 7 - light, pin 13, miniscope trigger
