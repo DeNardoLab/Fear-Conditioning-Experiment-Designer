@@ -1,12 +1,19 @@
-5kHz-12kHz-freq-resp-adj fork:  matches response intensity of 5kHz and 12kHz tones based on response profile of Amazon Basic speaker
+Hardcoded support for PointGray Chameleon3 USB camera, with DeNardo lab standard acquisition settings (Mono8, Mode1, 50  fps, 10% increased brightness, auto other settings)
 
-# Fear-Conditioning-Experiment-Designer
+# Fear-Conditioning-Experiment-Designer (FCXD)
 GUI-guided, Arduino based MATLAB app to interface with fear conditioning experiment hardware, design and run experiments.
 Written and designed by Zachary Zeidler, PhD; DeNardo Lab, Department of Physiology, UCLA
 
 The Fear Conditioning Experiment Designer app allows users to create and execute a fear conditioning experiment with various auditory and visual stimuli, paired with or without shock or laser delivery. All of this is controlled within a MATLAB app that communicates with an Arduino to send TTL pulses to appropriate hardware.
 
 The local timestamps (based on the computer clock) for all events (CS+, CS-, laser, and shock on and off) times are saved in a 'ts' (timestamp) struct. The save file is titled [Animal ID]_[YYYY-MM-DD-HH-SS].mat
+
+# DEPENDENCIES
+This branch of the FCXD uses Psychtoolbox to run the audio instead of default MATLAB sound player.  It auto detects WASAPI API drivers for sound devices and utilizes those to achieve ~22ms sound output. To install Psychtoolbox, visit http://psychtoolbox.org/download.
+This branch also uses Chameleon3 USB Point Gray support software. Two files are needed to this:  1) the [2.11 version of the FlyCap2 software from FLIR](https://ucla.box.com/s/qt5fadhxpmj9o410yj0e4k8jwnaxr80a), and 2) the [MATLAB PointGray support package](https://ucla.box.com/s/hxbcc0llsignqev5kz7nm9eyflq17s04)
+Like the main branch, Arduino MATLAB package is also required.
+Tested on Windows 10 and 11 with MATLAB 2020b.
+
 # INITIAL SETUP
 1.	Connect the Arduino to the computer, download and install the MATLAB Arduino Support package, and connect the Arduino to MATLAB using the guided prompts. 
 2.	Note what port the Arduino is connected to. Commonly, this is COM4
