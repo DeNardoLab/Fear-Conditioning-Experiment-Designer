@@ -1,27 +1,30 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="1250512480" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\Fear Conditioning Experiment Designer.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="Fear Conditioning Experiment Designer" target="target.mlapps" target-name="Package App">
-    <param.appname>Fear Conditioning Experiment Designer</param.appname>
+  <configuration file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\FC_Design.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="FC_Design" target="target.mlapps" target-name="Package App">
+    <param.appname>FC_Design</param.appname>
     <param.authnamewatermark>Zachary Zeidler</param.authnamewatermark>
     <param.email>zzeidler@ucla.edu</param.email>
     <param.company>DeNardo Lab</param.company>
     <param.icon />
     <param.icons />
-    <param.summary>GUI for design and control of Arduino based fear conditioning harded</param.summary>
-    <param.description>see github for details:  &lt;a href=""&gt;https://github.com/DeNardoLab/Fear-Conditioning-Experiment-Designer&lt;/a&gt;</param.description>
-    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tpaca14933_3890_4118_ac65_5220b18a8e16.png</param.screenshot>
-    <param.version>1.5.1</param.version>
+    <param.summary />
+    <param.description />
+    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tpdb6e57ed_117d_410f_9d17_b768ddba820a.png</param.screenshot>
+    <param.version>1.0</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
     <param.platforms />
     <param.output>${PROJECT_ROOT}</param.output>
-    <param.guid>eaa42c80-80c1-4f1f-bb1c-a292c73309be</param.guid>
+    <param.guid>9c8281ca-233f-4f80-b06c-5f0a321b78d2</param.guid>
     <unset>
       <param.authnamewatermark />
       <param.email />
       <param.company />
       <param.icon />
       <param.icons />
+      <param.summary />
+      <param.description />
+      <param.version />
       <param.products.name />
       <param.products.id />
       <param.products.version />
@@ -29,11 +32,9 @@
       <param.output />
     </unset>
     <fileset.main>
-      <file>${PROJECT_ROOT}\FCXD_PGfork.mlapp</file>
+      <file>${PROJECT_ROOT}\FC_Design.mlapp</file>
     </fileset.main>
-    <fileset.depfun>
-      <file>${PROJECT_ROOT}\launch_fc.m</file>
-    </fileset.depfun>
+    <fileset.depfun />
     <fileset.resources />
     <fileset.package />
     <build-deliverables>

@@ -259,7 +259,7 @@ end
 if P.run_PG
     disp('Now saving video. Can be slow (~5min for a 30min video)');
     disp('do not interrupt until "experiment complete" is displayed');
-    disp('(no video being recorded. safe to futz with recording area)');
+    disp('(no video being recorded -- safe to futz with recording area)');
     ts.camera_off = clock;
     stop(P.vid);
     %[~,ts.pg_frames] = getdata(P.vid);
