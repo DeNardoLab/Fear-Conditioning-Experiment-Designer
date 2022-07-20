@@ -424,12 +424,6 @@ function ts = doStimShock(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, ts)
         else
             ts.csm_off = [ts.csm_off; clock];
         end
-
-        if isequal(cs, 'csp')
-            ts.csp_off = [ts.csp_off; clock];
-        else
-            ts.csm_off = [ts.csm_off; clock];
-        end
        
 %%
     elseif isequal(csP.name, 'FM')

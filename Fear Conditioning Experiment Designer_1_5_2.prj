@@ -1,15 +1,16 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="1250512480" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\Fear Conditioning Experiment Designer.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="Fear Conditioning Experiment Designer" target="target.mlapps" target-name="Package App">
-    <param.appname>Fear Conditioning Experiment Designer</param.appname>
+  <configuration build-checksum="4204757848" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\Fear Conditioning Experiment Designer_1_5_2.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="Fear Conditioning Experiment Designer_1_5_2" target="target.mlapps" target-name="Package App">
+    <param.appname>Fear Conditioning Experiment Designer_1_5_2</param.appname>
     <param.authnamewatermark>Zachary Zeidler</param.authnamewatermark>
     <param.email>zzeidler@ucla.edu</param.email>
     <param.company>DeNardo Lab</param.company>
     <param.icon />
     <param.icons />
     <param.summary>GUI for design and control of Arduino based fear conditioning harded</param.summary>
-    <param.description>see github for details:  &lt;a href=""&gt;https://github.com/DeNardoLab/Fear-Conditioning-Experiment-Designer&lt;/a&gt;</param.description>
-    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tpaca14933_3890_4118_ac65_5220b18a8e16.png</param.screenshot>
-    <param.version>1.5.1</param.version>
+    <param.description>see github for details:  &lt;a href=""&gt;https://github.com/DeNardoLab/Fear-Conditioning-Experiment-Designer&lt;/a&gt;
+1.5.2 update:   squashed ts.csp_off bug introduced in 1.5 update</param.description>
+    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp36c4f84c_f31b_489a_bb16_60deac53b865.png</param.screenshot>
+    <param.version>1.5.2</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
@@ -41,8 +42,15 @@
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2020b</root>
-      <toolboxes />
+      <root>C:\Program Files\MATLAB\R2022a</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
     </matlab>
     <platform>
       <unix>false</unix>
