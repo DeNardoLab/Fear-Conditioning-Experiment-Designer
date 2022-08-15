@@ -155,7 +155,7 @@ audio_devices = PsychPortAudio('GetDevices');
 if ~manual_audio
 for i = 1:size(audio_devices,2)
     if audio_devices(i).HostAudioAPIName == "Windows WASAPI"
-        devID = i;
+        devID = i-1;
         disp(['Using ' audio_devices(devID).DeviceName 'with Windows WASAPI API']);
         disp('if different speakers desired, edit manual_audio and devID at top of launch_fc.m function');
         break
