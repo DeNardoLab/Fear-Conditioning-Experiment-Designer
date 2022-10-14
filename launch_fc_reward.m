@@ -119,7 +119,7 @@ us_dur = P.us_dur;
 
 
 xd = P.expdesign;
-xd_labels = ["CS+";"CS-";"Shock";"Laser"];
+xd_labels = ["CS+";"CS-";"Shock";"Laser";"Reward"];
 
 
 %% initialization
@@ -220,87 +220,89 @@ disp('Now doing events')
         if isequal(this,[1;0;0;0;0])
             tonep = tonep_csp;
             reward_flag=0;
-            ts = doStim('csp', csp_p, a, tonep, lightp, cs_dur, ts, reward_flag);
+            ts = doStim('csp', csp_p, a, tonep, lightp, cs_dur, ts, reward_flag, rewardp);
         elseif isequal(this,[0;1;0;0;0])
             tonep = tonep_csm;
             reward_flag=0;
-            ts = doStim('csm', csm_p, a, tonep, lightp, cs_dur, ts, reward_flag);
+            ts = doStim('csm', csm_p, a, tonep, lightp, cs_dur, ts, reward_flag, rewardp);
         elseif isequal(this,[1;0;1;0;0])
             tonep = tonep_csp;
             reward_flag=0;
-            ts = doStimShock('csp', csp_p, a, tonep, lightp, shockp, cs_dur, us_dur, ts, reward_flag);  
+            ts = doStimShock('csp', csp_p, a, tonep, lightp, shockp, cs_dur, us_dur, ts, reward_flag, rewardp);  
         elseif isequal(this,[0;1;1;0;0])
             tonep = tonep_csm;
             reward_flag=0;
-            ts = doStimShock('csm', csm_p, a, tonep, lightp, shockp, cs_dur, us_dur, ts, reward_flag);
+            ts = doStimShock('csm', csm_p, a, tonep, lightp, shockp, cs_dur, us_dur, ts, reward_flag, rewardp);
         elseif isequal(this,[1;0;0;1;0])
             tonep = tonep_csp;
             reward_flag=0;
-            ts = doStimLaser('csp', csp_p, a, tonep, lightp, cs_dur, optop, ts, reward_flag);
+            ts = doStimLaser('csp', csp_p, a, tonep, lightp, cs_dur, optop, ts, reward_flag, rewardp);
         elseif isequal(this,[0;1;0;1;0])
             tonep = tonep_csm;
-            ts = doStimLaser('csm', csm_p, a, tonep, lightp, cs_dur, optop, ts, reward_flag);
+            reward_flag=0;
+            ts = doStimLaser('csm', csm_p, a, tonep, lightp, cs_dur, optop, ts, reward_flag, rewardp);
         elseif isequal(this,[1;0;1;1;0])
             tonep = tonep_csp;
             reward_flag=0;
-            ts = doStimShockLaser('csp', csp_p, a, tonep, lightp, shockp, cs_dur, us_dur, optop, ts, reward_flag);
+            ts = doStimShockLaser('csp', csp_p, a, tonep, lightp, shockp, cs_dur, us_dur, optop, ts, reward_flag, rewardp);
         elseif isequal(this,[0;1;1;1;0])
             tonep = tonep_csm;
             reward_flag=0;
-            ts = doStimShockLaser('csm', csm_p, a, tonep, lightp, shockp, cs_dur, us_dur, optop, ts, reward_flag);
+            ts = doStimShockLaser('csm', csm_p, a, tonep, lightp, shockp, cs_dur, us_dur, optop, ts, reward_flag, rewardp);
         elseif isequal(this,[2;2;0;1;0])
             reward_flag=0;
-            ts = doLaser(a, cs_dur, optop, ts, reward_flag);
+            ts = doLaser(a, cs_dur, optop, ts, reward_flag, rewardp);
         elseif isequal(this, [2;2;1;0;0])
             reward_flag=0;
-            ts = doShock(a, shockp, cs_dur, us_dur, ts, reward_flag);
+            ts = doShock(a, shockp, cs_dur, us_dur, ts, reward_flag, rewardp);
         elseif isequal(this, [2;2;1;1;0])
             reward_flag=0;
-            ts = doLaserShock(a, shockp, optop, cs_dur, us_dur, ts, reward_flag);
+            ts = doLaserShock(a, shockp, optop, cs_dur, us_dur, ts, reward_flag, rewardp);
 
         % copy of everything with reward on
-        elseif isequal(this,[0;0;0;0;1])
-            ts = doReward(ts, rewardp, reward_dur);
+        elseif isequal(this,[2;2;0;0;1])
+            ts = doReward(a, ts, rewardp, reward_dur);
         elseif isequal(this,[1;0;0;0;1])
             tonep = tonep_csp;
-            reward_flag=0;
-            ts = doStim('csp', csp_p, a, tonep, lightp, cs_dur, ts, reward_flag);
+            reward_flag=1;
+            ts = doStim('csp', csp_p, a, tonep, lightp, cs_dur, ts, reward_flag, rewardp);
         elseif isequal(this,[0;1;0;0;1])
             tonep = tonep_csm;
-            reward_flag=0;
-            ts = doStim('csm', csm_p, a, tonep, lightp, cs_dur, ts, reward_flag);
+            reward_flag=1;
+            ts = doStim('csm', csm_p, a, tonep, lightp, cs_dur, ts, reward_flag, rewardp);
         elseif isequal(this,[1;0;1;0;1])
             tonep = tonep_csp;
-            reward_flag=0;
-            ts = doStimShock('csp', csp_p, a, tonep, lightp, shockp, cs_dur, us_dur, ts, reward_flag);  
+            reward_flag=1;
+            ts = doStimShock('csp', csp_p, a, tonep, lightp, shockp, cs_dur, us_dur, ts, reward_flag, rewardp);  
         elseif isequal(this,[0;1;1;0;1])
             tonep = tonep_csm;
-            reward_flag=0;
-            ts = doStimShock('csm', csm_p, a, tonep, lightp, shockp, cs_dur, us_dur, ts, reward_flag);
+            reward_flag=1;
+            ts = doStimShock('csm', csm_p, a, tonep, lightp, shockp, cs_dur, us_dur, ts, reward_flag, rewardp);
         elseif isequal(this,[1;0;0;1;1])
             tonep = tonep_csp;
-            reward_flag=0;
-            ts = doStimLaser('csp', csp_p, a, tonep, lightp, cs_dur, optop, ts, reward_flag);
+            reward_flag=1;
+            ts = doStimLaser('csp', csp_p, a, tonep, lightp, cs_dur, optop, ts, reward_flag, rewardp);
         elseif isequal(this,[0;1;0;1;1])
             tonep = tonep_csm;
-            ts = doStimLaser('csm', csm_p, a, tonep, lightp, cs_dur, optop, ts, reward_flag);
+            reward_flag=1;
+            ts = doStimLaser('csm', csm_p, a, tonep, lightp, cs_dur, optop, ts, reward_flag, rewardp);
         elseif isequal(this,[1;0;1;1;1])
             tonep = tonep_csp;
-            reward_flag=0;
-            ts = doStimShockLaser('csp', csp_p, a, tonep, lightp, shockp, cs_dur, us_dur, optop, ts, reward_flag);
+            reward_flag=1;
+            ts = doStimShockLaser('csp', csp_p, a, tonep, lightp, shockp, cs_dur, us_dur, optop, ts, reward_flag, rewardp);
         elseif isequal(this,[0;1;1;1;1])
             tonep = tonep_csm;
-            reward_flag=0;
-            ts = doStimShockLaser('csm', csm_p, a, tonep, lightp, shockp, cs_dur, us_dur, optop, ts, reward_flag);
+            reward_flag=1;
+            ts = doStimShockLaser('csm', csm_p, a, tonep, lightp, shockp, cs_dur, us_dur, optop, ts, reward_flag, rewardp);
         elseif isequal(this,[2;2;0;1;1])
-            reward_flag=0;
-            ts = doLaser(a, cs_dur, optop, ts, reward_flag);
+            reward_flag=1;
+            ts = doLaser(a, cs_dur, optop, ts, reward_flag, rewardp);
         elseif isequal(this, [2;2;1;0;1])
-            reward_flag=0;
-            ts = doShock(a, shockp, cs_dur, us_dur, ts, reward_flag);
+            reward_flag=1;
+            ts = doShock(a, shockp, cs_dur, us_dur, ts, reward_flag, rewardp);
         elseif isequal(this, [2;2;1;1;1])
-            reward_flag=0;
-            ts = doLaserShock(a, shockp, optop, cs_dur, us_dur, ts, reward_flag);
+            reward_flag=1;
+            ts = doLaserShock(a, shockp, optop, cs_dur, us_dur, ts, reward_flag, rewardp);
         end
 
         disp(['Done ' num2str(i) ' of ' num2str(size(xd,2)) ' events']);
@@ -342,7 +344,7 @@ end
 
 % for doing just stimulus presentation. input: cs (csp or csm),
 % cs_params, arduino handle, tonepin, lightpin)
-function ts = doStim(cs, csP, a, tonep, lightp, cs_dur, ts, reward_flag)
+function ts = doStim(cs, csP, a, tonep, lightp, cs_dur, ts, reward_flag, rewardp)
 %%
     global first_csp
     global first_csm
@@ -365,25 +367,27 @@ function ts = doStim(cs, csP, a, tonep, lightp, cs_dur, ts, reward_flag)
         
         if isequal(cs, 'csp')
             ts.csp_on = [ts.csp_on; audiotime];
-            if reward_flag
-                ts.reward_on = [ts.reward_on; clock];
-                a.writeDigitalPin(rewardp,0);
-            end
+            
         else
             ts.csm_on = [ts.csm_on; audiotime];
+        end
+        if reward_flag
+            ts.reward_on = [ts.reward_on; clock];
+            a.writeDigitalPin(rewardp,0);
         end
         
         a.writeDigitalPin(tonep, 1);
 
         pause(cs_dur);
         a.writeDigitalPin(tonep, 0);
-
+        
+        if reward_flag
+            ts.reward_off = [ts.reward_off; clock];
+            a.writeDigitalPin(rewardp,1);
+        end
         if isequal(cs, 'csp')
             ts.csp_off = [ts.csp_off; clock];
-            if reward_flag
-                ts.reward_off = [ts.reward_off; clock];
-                a.writeDigitalPin(rewardp,1);
-            end
+
         else
             ts.csm_off = [ts.csm_off; clock];
         end
@@ -457,7 +461,7 @@ function ts = doStim(cs, csP, a, tonep, lightp, cs_dur, ts, reward_flag)
     end
 end
 %%
-function ts = doStimShock(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, ts, reward_flag)
+function ts = doStimShock(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, ts, reward_flag, rewardp)
     global first_csp
     global first_csm
     if isequal(csP.name, 'Tone')
@@ -480,13 +484,13 @@ function ts = doStimShock(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, ts,
         
         if isequal(cs, 'csp')
             ts.csp_on = [ts.csp_on; audiotime];
-            if reward_flag
-                ts.reward_on = [ts.reward_on; clock];
-                a.writeDigitalPin(rewardp,0);
-            end
-
         else
             ts.csm_on = [ts.csm_on; audiotime];
+        end
+        
+        if reward_flag
+            ts.reward_on = [ts.reward_on; clock];
+            a.writeDigitalPin(rewardp,0);
         end
         
         a.writeDigitalPin(tonep, 1);
@@ -499,13 +503,14 @@ function ts = doStimShock(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, ts,
         a.writeDigitalPin(shockp,0);
         a.writeDigitalPin(tonep, 0);
         
+        if reward_flag
+            ts.reward_off = [ts.reward_off; clock];
+            a.writeDigitalPin(rewardp,1);
+        end
+        
         ts.us_off = [ts.us_off; clock];
         if isequal(cs, 'csp')
             ts.csp_off = [ts.csp_off; clock];
-            if reward_flag
-                ts.reward_off = [ts.reward_off; clock];
-                a.writeDigitalPin(rewardp,1);
-            end
         else
             ts.csm_off = [ts.csm_off; clock];
         end
@@ -592,7 +597,7 @@ function ts = doStimShock(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, ts,
 end
 
 %%
-function ts = doStimLaser(cs, csP, a, tonep, lightp, cs_dur, optop, ts, reward_flag)
+function ts = doStimLaser(cs, csP, a, tonep, lightp, cs_dur, optop, ts, reward_flag, rewardp)
     global first_csp
     global first_csm    
     a.writeDigitalPin(optop, 1);
@@ -637,12 +642,13 @@ function ts = doStimLaser(cs, csP, a, tonep, lightp, cs_dur, optop, ts, reward_f
         a.writeDigitalPin(tonep,1);
         if isequal(cs, 'csp')
             ts.csp_on = [ts.csp_on; audiotime];
-            if reward_flag
-                ts.reward_on = [ts.reward_on; clock];
-                a.writeDigitalPin(rewardp,0);
-            end
         else
             ts.csm_on = [ts.csm_on; audiotime];
+        end
+        
+        if reward_flag
+            ts.reward_on = [ts.reward_on; clock];
+            a.writeDigitalPin(rewardp,0);
         end
 
         pause(cs_dur);
@@ -650,12 +656,13 @@ function ts = doStimLaser(cs, csP, a, tonep, lightp, cs_dur, optop, ts, reward_f
         a.writeDigitalPin(tonep, 0);
         if isequal(cs, 'csp')
             ts.csp_off = [ts.csp_off; clock];
-            if reward_flag
-                ts.reward_off = [ts.reward_off; clock];
-                a.writeDigitalPin(rewardp,1);
-            end
         else
             ts.csm_off = [ts.csm_off; clock];
+        end
+        
+        if reward_flag
+            ts.reward_off = [ts.reward_off; clock];
+            a.writeDigitalPin(rewardp,1);
         end
         
     
@@ -694,7 +701,7 @@ function ts = doStimLaser(cs, csP, a, tonep, lightp, cs_dur, optop, ts, reward_f
 end
 
 %%
-function ts = doStimShockLaser(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, optop, ts, reward_flag)
+function ts = doStimShockLaser(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, optop, ts, reward_flag, rewardp)
     global first_csp
     global first_csm    
     a.writeDigitalPin(optop, 1);
@@ -738,14 +745,15 @@ function ts = doStimShockLaser(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur
 
         if isequal(cs, 'csp')
             ts.csp_on = [ts.csp_on; audiotime];
-            if reward_flag
-                ts.reward_off = [ts.reward_off; clock];
-                a.writeDigitalPin(rewardp,1);
-            end
         else
             ts.csm_on = [ts.csm_on; audiotime];
         end
         a.writeDigitalPin(tonep,1);
+        
+        if reward_flag
+            ts.reward_on = [ts.reward_on; clock];
+            a.writeDigitalPin(rewardp,0);
+        end
 
         
 %%
@@ -778,12 +786,13 @@ function ts = doStimShockLaser(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur
     ts.us_off = [ts.us_off; clock];
     if isequal(cs, 'csp')
         ts.csp_off = [ts.csp_off; clock];
-        if reward_flag
-            ts.reward_off = [ts.reward_off; clock];
-            a.writeDigitalPin(rewardp,1);
-        end
     else
         ts.csm_off = [ts.csm_off; clock];
+    end
+    
+    if reward_flag
+        ts.reward_off = [ts.reward_off; clock];
+        a.writeDigitalPin(rewardp,1);
     end
     
     a.writeDigitalPin(optop,0);
@@ -791,7 +800,7 @@ function ts = doStimShockLaser(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur
 end
 
 %%
-function ts = doLaser(a, cs_dur, optop, ts, reward_flag)
+function ts = doLaser(a, cs_dur, optop, ts, reward_flag, rewardp)
     a.writeDigitalPin(optop, 1);
     ts.laser_on = [ts.laser_on; clock];
     if reward_flag
@@ -808,7 +817,7 @@ function ts = doLaser(a, cs_dur, optop, ts, reward_flag)
 end
 
 %% 
-function ts = doShock(a, shockp, cs_dur, us_dur, ts, reward_flag)
+function ts = doShock(a, shockp, cs_dur, us_dur, ts, reward_flag, rewardp)
     if reward_flag
         ts.reward_on = [ts.reward_on; clock];
         a.writeDigitalPin(rewardp,0);
@@ -826,7 +835,7 @@ function ts = doShock(a, shockp, cs_dur, us_dur, ts, reward_flag)
 end
 
 %%
-function ts = doReward(ts, rewardp, reward_dur)
+function ts = doReward(a, ts, rewardp, reward_dur)
     a.writeDigitalPin(rewardp,0);
     ts.reward_on = [ts.reward_on; clock];
     pause(reward_dur);
@@ -834,7 +843,7 @@ function ts = doReward(ts, rewardp, reward_dur)
     ts.reward_off = [ts.reward_off; clock];
 end
 %%
-function ts = doLaserShock(a, shockp, optop, cs_dur, us_dur, ts, reward_flag)
+function ts = doLaserShock(a, shockp, optop, cs_dur, us_dur, ts, reward_flag, rewardp)
     if reward_flag
         ts.reward_on = [ts.reward_on; clock];
         a.writeDigitalPin(rewardp,0);
