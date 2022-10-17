@@ -386,8 +386,6 @@ function ts = doStim(cs, csP, a, tonep, lightp, cs_dur, ts, reward_flag, rewardp
         if reward_flag
             ts.reward_on = [ts.reward_on; clock];
             a.writeDigitalPin(rewardp,0);
-            a.writeDigitalPin(pins.reward_lightp,1);
-
         end
         
         a.writeDigitalPin(tonep, 1);
@@ -398,8 +396,6 @@ function ts = doStim(cs, csP, a, tonep, lightp, cs_dur, ts, reward_flag, rewardp
         if reward_flag
             ts.reward_off = [ts.reward_off; clock];
             a.writeDigitalPin(rewardp,1);
-            a.writeDigitalPin(pins.reward_lightp,0);
-
         end
         if isequal(cs, 'csp')
             ts.csp_off = [ts.csp_off; clock];
@@ -433,8 +429,6 @@ function ts = doStim(cs, csP, a, tonep, lightp, cs_dur, ts, reward_flag, rewardp
             if reward_flag
                 ts.reward_on = [ts.reward_on; clock];
                 a.writeDigitalPin(rewardp,0);
-                a.writeDigitalPin(pins.reward_lightp,1);
-
             end
         else
             ts.csm_on = [ts.csm_on; audiotime];
@@ -447,8 +441,6 @@ function ts = doStim(cs, csP, a, tonep, lightp, cs_dur, ts, reward_flag, rewardp
         if reward_flag
             ts.reward_off = [ts.reward_off; clock];
             a.writeDigitalPin(rewardp,1);
-            a.writeDigitalPin(pins.reward_lightp,0);
-
         end
 %%
     elseif isequal(csP.name, 'Light')
@@ -511,7 +503,7 @@ function ts = doStimShock(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, ts,
         if reward_flag
             ts.reward_on = [ts.reward_on; clock];
             a.writeDigitalPin(rewardp,0);
-            a.writeDigitalPin(pins.reward_lightp,1);
+            a.writeDigitalPin()
         end
         
         a.writeDigitalPin(tonep, 1);
@@ -527,8 +519,6 @@ function ts = doStimShock(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur, ts,
         if reward_flag
             ts.reward_off = [ts.reward_off; clock];
             a.writeDigitalPin(rewardp,1);
-            a.writeDigitalPin(pins.reward_lightp,0);
-
         end
         
         ts.us_off = [ts.us_off; clock];
@@ -672,8 +662,6 @@ function ts = doStimLaser(cs, csP, a, tonep, lightp, cs_dur, optop, ts, reward_f
         if reward_flag
             ts.reward_on = [ts.reward_on; clock];
             a.writeDigitalPin(rewardp,0);
-            a.writeDigitalPin(pins.reward_lightp,1);
-
         end
 
         pause(cs_dur);
@@ -688,8 +676,6 @@ function ts = doStimLaser(cs, csP, a, tonep, lightp, cs_dur, optop, ts, reward_f
         if reward_flag
             ts.reward_off = [ts.reward_off; clock];
             a.writeDigitalPin(rewardp,1);
-            a.writeDigitalPin(pins.reward_lightp,0);
-
         end
         
     
@@ -780,8 +766,6 @@ function ts = doStimShockLaser(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur
         if reward_flag
             ts.reward_on = [ts.reward_on; clock];
             a.writeDigitalPin(rewardp,0);
-            a.writeDigitalPin(pins.reward_lightp,1);
-
         end
 
         
@@ -822,8 +806,6 @@ function ts = doStimShockLaser(cs, csP, a, tonep, lightp, shockp, cs_dur, us_dur
     if reward_flag
         ts.reward_off = [ts.reward_off; clock];
         a.writeDigitalPin(rewardp,1);
-        a.writeDigitalPin(pins.reward_lightp,0);
-
     end
     
     a.writeDigitalPin(optop,0);
@@ -837,8 +819,6 @@ function ts = doLaser(a, cs_dur, optop, ts, reward_flag, rewardp, pins)
     if reward_flag
         ts.reward_on = [ts.reward_on; clock];
         a.writeDigitalPin(rewardp,0);
-        a.writeDigitalPin(pins.reward_lightp,1);
-
     end
     pause(cs_dur);
     a.writeDigitalPin(optop, 0);
@@ -846,8 +826,6 @@ function ts = doLaser(a, cs_dur, optop, ts, reward_flag, rewardp, pins)
     if reward_flag
         ts.reward_off = [ts.reward_off; clock];
         a.writeDigitalPin(rewardp,1);
-        a.writeDigitalPin(pins.reward_lightp,0);
-
     end
 end
 
@@ -856,8 +834,6 @@ function ts = doShock(a, shockp, cs_dur, us_dur, ts, reward_flag, rewardp, pins)
     if reward_flag
         ts.reward_on = [ts.reward_on; clock];
         a.writeDigitalPin(rewardp,0);
-        a.writeDigitalPin(pins.reward_lightp,1);
-
     end    
     pause(cs_dur-us_dur);
     a.writeDigitalPin(shockp,1);
@@ -868,29 +844,22 @@ function ts = doShock(a, shockp, cs_dur, us_dur, ts, reward_flag, rewardp, pins)
     if reward_flag
         ts.reward_off = [ts.reward_off; clock];
         a.writeDigitalPin(rewardp,1);
-        a.writeDigitalPin(pins.reward_lightp,0);
-
     end
 end
 
 %%
 function ts = doReward(a, ts, rewardp, reward_dur, pins)
     a.writeDigitalPin(rewardp,0);
-    a.writeDigitalPin(pins.reward_lightp,1);
     ts.reward_on = [ts.reward_on; clock];
     pause(reward_dur);
     a.writeDigitalPin(rewardp, 1);
     ts.reward_off = [ts.reward_off; clock];
-    a.writeDigitalPin(pins.reward_lightp,0);
-
 end
 %%
 function ts = doLaserShock(a, shockp, optop, cs_dur, us_dur, ts, reward_flag, rewardp, pins)
     if reward_flag
         ts.reward_on = [ts.reward_on; clock];
         a.writeDigitalPin(rewardp,0);
-        a.writeDigitalPin(pins.reward_lightp,1);
-
     end    
 
     a.writeDigitalPin(optop, 1);
@@ -907,8 +876,6 @@ function ts = doLaserShock(a, shockp, optop, cs_dur, us_dur, ts, reward_flag, re
     if reward_flag
         ts.reward_off = [ts.reward_off; clock];
         a.writeDigitalPin(rewardp,1);
-        a.writeDigitalPin(pins.reward_lightp,0);
-
     end
 end
 %%
