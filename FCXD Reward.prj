@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="2274611856" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\FCXD Reward.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="FCXD Reward" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="3663441400" file="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer\FCXD Reward.prj" location="C:\Users\Zach\Documents\GitHub\Fear-Conditioning-Experiment-Designer" name="FCXD Reward" target="target.mlapps" target-name="Package App">
     <param.appname>FCXD Reward</param.appname>
     <param.authnamewatermark>Zachary Zeidler</param.authnamewatermark>
     <param.email>zzeidler@ucla.edu</param.email>
@@ -7,9 +7,9 @@
     <param.icon />
     <param.icons />
     <param.summary />
-    <param.description>includes rewared port light co-incident with pump action</param.description>
-    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp9408e93c_f026_4e32_a841_6283dd6411e7.png</param.screenshot>
-    <param.version>1.1</param.version>
+    <param.description>minor bug fix to correct reward light</param.description>
+    <param.screenshot>C:\Users\Zach\AppData\Local\Temp\tp6b74bd5a_c82e_4b2e_8c96_fd2b2ef939f8.png</param.screenshot>
+    <param.version>1.1.1</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
